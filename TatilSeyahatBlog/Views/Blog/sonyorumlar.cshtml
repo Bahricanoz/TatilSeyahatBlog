@@ -1,0 +1,6 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Comment>
+@foreach (var x in Model)
+{
+    <li class="list-group-item link-danger">@x.Name - <a href="/Blog/Detay/@x.Blog.Id" class="text-decoration-none">@x.Blog.Name</a></li>
+}

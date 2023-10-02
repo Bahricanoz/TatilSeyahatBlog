@@ -1,0 +1,10 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Blog>
+
+@{ int id = 1;}
+@foreach(var x in Model)
+ {
+                <li class="list-bg"><span>@id</span><a href="/Blog/Detay/@x.Id">@x.Name</a></li>
+                id++;       
+}
+

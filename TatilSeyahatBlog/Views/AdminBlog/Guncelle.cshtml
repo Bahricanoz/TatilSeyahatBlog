@@ -1,0 +1,27 @@
+﻿@model TatilSeyahatBlog.Models.Entity.Blog
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="mt-3">
+    <h3>Blog Güncelleme Sayfası</h3>
+</div>
+
+@using (Html.BeginForm("Guncelle", "AdminBlog", FormMethod.Post))
+{
+    <div class="mt-3">
+        <label>Blog Name:</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @required = "required" })
+    </div>
+    <div class="mt-3">
+        <label>Blog Görsel:</label>
+        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control", @required = "required" })
+    </div>
+    <div class="mt-3">
+        <label>Blog Detay:</label>
+        @Html.TextAreaFor(x => x.Content, new { @class = "form-control", @required = "required",@style="height:200px;" })
+    </div>
+    <div class="mt-3">
+        <button class="btn btn-success">Blog Güncelle</button>
+    </div>
+}

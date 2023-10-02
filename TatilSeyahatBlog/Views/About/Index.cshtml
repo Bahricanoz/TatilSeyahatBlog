@@ -1,0 +1,17 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="about">
+    <h3>Hakkımızda</h3>
+    @foreach (var x in Model)
+    {
+        <img src="@x.Image" alt="" />
+        <p>@x.Content</p>
+    }
+
+</div>
+

@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tatil Seyahat Admim</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+        <h3 class="w3-bar-item">Menü</h3>
+        <a href="/AdminAbout/Index/" class="w3-bar-item w3-button text-decoration-none">Hakkımızda</a>
+        <a href="/Adminblog/Index/" class="w3-bar-item w3-button text-decoration-none">Blog</a>
+        <a href="/AdminYorum/Index/" class="w3-bar-item w3-button text-decoration-none">Yorumlar</a>
+        <a href="/AdminMesaj/Index/" class="w3-bar-item w3-button text-decoration-none">Mesajlar</a>
+        <a href="/AdminAyarlar/Index/" class="w3-bar-item w3-button text-decoration-none">Ayarlar</a>
+        <a href="/Anasayfa/Index/" class="w3-bar-item w3-button text-decoration-none">Siteye Git</a>
+
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:15%">
+
+        <div class="w3-container w3-teal">
+            <h1>Tatil Seyahat Admin Panel</h1>
+        </div>
+
+
+
+        <div class="w3-container">
+            @RenderBody()
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
+

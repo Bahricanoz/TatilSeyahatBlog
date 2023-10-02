@@ -1,0 +1,23 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Comment>
+
+@foreach(var x in Model)
+            {
+                <div class="card mt-3 p-3">
+                    <div class="row">
+                        <div class="col-sm-2 p-3">
+                            <img src="https://i.hizliresim.com/jonoq29.png" class="w-100" alt="Alternate Text" />
+                        </div>
+                        <div class="col-sm-10 p-3 ">
+                            <h5 class="card-title">@x.Name <span class="float-right">@x.Date.ToShortDateString()</span> </h5>
+                            
+                            <p>@x.Content</p>
+                            
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+

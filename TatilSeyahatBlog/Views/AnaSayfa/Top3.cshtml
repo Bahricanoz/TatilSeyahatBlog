@@ -1,0 +1,16 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Blog>
+@foreach (var x in Model) {
+    <div class="left" style="width:29%;float:left;">
+
+        <div class="bot-left">
+            <img src="@x.ImageUrl" style="height:200px" alt="" />
+        </div>
+        <div class="left-text">
+            <h4>@x.Name</h4>
+            <span class="doller">@x.Date.ToShortDateString()</span>
+            <p>@x.Content.Substring(0,80)</p>
+            <p><a href="/Blog/Detay/@x.Id"><span class="read">Read More >></span></a></p>
+        </div>
+    </div>
+}

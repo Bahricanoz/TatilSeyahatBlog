@@ -1,0 +1,89 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mt-3">
+    <button class="btn btn-info" data-toggle="modal" data-target="#Modal1">Blog Ekle</button>
+</div>
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Id</th>
+        <th>Blog İsim</th>
+        <th>Görsel</th>
+        <th>Tarih</th>
+        <th>Metin</th>
+        <th>Durum</th>
+        <th>İşlem</th>
+        <th>Güncelle</th>
+    </tr>
+    @{ string durum = ""; string btn = ""; string yazı = ""; string link = ""; string metin = "";}
+    @foreach(var x in Model)
+    {
+        if(x.Status == true)
+        {
+            durum = "Aktif";
+            btn = "btn btn-danger";
+            yazı = "Pasif Et";
+            link = "/AdminBlog/Pasif";
+            metin = "pasif etmek yapmak misiniz?";
+
+        }
+        if(x.Status == false)
+        {
+            durum = "Pasif";
+            btn = "btn btn-primary";
+            yazı = "Aktif Et";
+            link = "/AdminBlog/Aktif";
+            metin = "aktif etmek yapmak misiniz?";
+        }
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Name</td>
+                    <td>
+                        <img src="@x.ImageUrl" class="w-100" style="width:50px; height:100px;" />
+                    </td>
+                    <td>@x.Date.ToShortDateString()</td>
+                    <td>@x.Content.Substring(0, 200)</td>
+                    <td>@durum</td>
+                    <td>
+                        <a href="@link/@x.Id" class="@btn" onclick='return confirm("@x.Id numralı blogu @metin ")'> @yazı</a>
+                    </td>
+                    <td>
+                        <a href="/AdminBlog/Guncelle/@x.Id" class="btn btn-success"> Düzenle</a>
+                    </td>
+                </tr>
+                
+     }
+</table>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Blog Ekleme Paneli</h3>
+            </div>
+            <form method="post" action="/AdminBlog/Ekle">
+                <div class="modal-body">
+                    <div class="mt-3">
+                        <label>Blog İsim:</label>
+                        <input type="text" name="Name" value="" class="form-control" required="" />
+                    </div>
+                    <div class="mt-3">
+                        <label>Blog Görsel:</label>
+                        <input type="text" name="ImageUrl" value="" class="form-control" required=""/>
+                    </div>
+                    <div class="mt-3">
+                        <label>İçerik:</label>
+                        <textarea class="form-control" name="Content" required="" style="height:125px;"></textarea>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary">Blog Ekle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

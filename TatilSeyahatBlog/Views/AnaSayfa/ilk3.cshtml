@@ -1,0 +1,17 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Blog>
+
+<div class="box1-left">
+    @foreach (var x in Model)
+    {
+        <div class="bot-img">
+            <img src="@x.ImageUrl" style="height:100px;" alt="" />
+        </div>
+        <div class="bot-desc1">
+            <p>@x.Content.Substring(0,100) </p>
+        </div>
+        <div class="clear"></div>
+    }
+
+
+</div>

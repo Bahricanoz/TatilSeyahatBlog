@@ -1,0 +1,78 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="~/web/js/jquery.min.js"></script>
+<script src="~/web/js/responsiveslides.min.js"></script>
+
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 1
+        $("#slider1").responsiveSlides({
+            auto: true,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+        });
+    });
+</script>
+<div class="header-banner">
+    <div class="wrap">
+        <div class="banner">
+            <div class="indent">
+                <h2 class="indent-left margin-bot">Tatil Seyahat Blog</h2>
+
+                <div class="header_bottom_right_images">
+
+                    <div class="slider">
+                        <ul class="rslides" id="slider1">
+                            @foreach (var x in Model)
+                            {
+                                <li><img src="@x.ImageUrl" style="width:950px; height:500px; margin-right:20px;" alt=""></li>
+                            }
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="wrapper">
+    <div class="con-top">
+        <h3>Tatil Seyahat Blog Sitesine Hoşgeldiniz...</h3>
+        <p>Hoş geldiniz! Tatil seyahat blogumuzda, dünyanın dört bir yanındaki harika destinasyonları keşfetmek için sizi bir yolculuğa çıkarıyoruz. Seyahat etmeyi seven, yeni yerler görmeyi ve farklı kültürleri deneyimlemeyi isteyen herkes için buradayız.</p>
+    </div>
+    <div class="con-bot">
+        @Html.Action("Top3")
+        
+        
+        <div class="clear"></div>
+    </div>
+    <div class="grids">
+        <div class="box1" style="margin-top:20px;">
+            <div class="padding">
+                <h4>This Week's Top 5</h4>
+                <ul class="list list-pad">
+                    @Html.Action("Top5")
+                    
+                    
+                </ul>
+               
+            </div>
+            <div class="padding1">
+                <h4>Our Best Places</h4>
+                @Html.Action("Son3")
+                @Html.Action("ilk3")
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+

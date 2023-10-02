@@ -1,0 +1,38 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Contact>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mt-3">
+    <h3>Gelen Mesajlar</h3>
+</div>
+    <table class="table table-bordered mt-3">
+        <tr>
+            <th>Id</th>
+            <th>İsim</th>
+            <th>Tarih</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
+            <th>İşlem</th>
+
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.Name</td>
+                <td>@x.Date.ToShortDateString()</td>
+                <td>@x.Subject</td>
+                <td>@x.Message</td>
+                <td>
+                    <a href="/AdminMesaj/Sil/@x.Id" class="btn btn-danger" onclick='return confirm("@x.Id nuramlı mesajı silme ister misiniz?")'>Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+    
+    
+
+

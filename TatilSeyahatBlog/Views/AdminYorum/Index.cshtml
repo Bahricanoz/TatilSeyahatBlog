@@ -1,0 +1,58 @@
+﻿@using TatilSeyahatBlog.Models.Entity
+@model List<Comment>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mt-3">
+    <h3>Gelen Yorumlar</h3>
+</div>
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Id</th>
+        <th>İsim</th>
+        <th>Mail</th>
+        <th>Blog</th>
+        <th>Tarih</th>
+        <th>İçerik</th>
+        <th>Durum</th>
+        <th>İşlem</th>
+    </tr>
+    <tbody>
+        @{ string durum = ""; string link = ""; string metin = ""; string yazi = ""; string btn = "";}
+        @foreach(var x in Model)
+        {
+            if(x.Status == true)
+            {
+                durum = "Aktif";
+                yazi = "Pasif Yap";
+                btn = "btn btn-danger";
+                link = "/AdminYorum/Pasif";
+                metin = "pasif yapmak ister misiniz?";
+            }
+            if(x.Status == false)
+            {
+                durum = "Pasif";
+                yazi = "Aktif Yap";
+                btn = "btn btn-primary";
+                link = "/AdminYorum/Aktif";
+                metin = "aktif yapmak ister misiniz?";
+
+            }
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Name</td>
+                    <td>@x.Mail</td>
+                    <td><a href="/AdminBlog/Index/" class="text-decoration-none">@x.Blog.Name</a></td>
+                    <td>@x.Date.ToShortDateString()</td>
+                    <td>@x.Content</td>
+                    <td>@durum</td>
+                    <td>
+                        <a href="@link/@x.Id" class="@btn" onclick='return confirm("@x.Id numralı yorumu @metin")'>@yazi</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

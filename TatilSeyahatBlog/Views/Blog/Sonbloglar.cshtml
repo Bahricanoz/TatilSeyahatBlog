@@ -1,0 +1,7 @@
+﻿ @using TatilSeyahatBlog.Models.Entity
+@model List<Blog>
+@foreach(var x in Model)
+            {
+                <li class="list-group-item link-danger"><a href="/Blog/Detay/@x.Id" class="text-decoration-none">@x.Name</a></li>
+            }
+
